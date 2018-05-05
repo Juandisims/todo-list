@@ -7,7 +7,10 @@ export class App extends Component {
 
   state = {
     todo: '',
-    todos: [ { text: 'Add your first todo' } ]
+    todos: [{
+      id: uniqueId(), // add ID to initial Todo item
+      text: 'Add your first todo'
+    }]
   }
 
   componentDidUpdate = (prevProps, prevState) => {
@@ -18,27 +21,40 @@ export class App extends Component {
     }
   }
 
-  handleChange = event => this.setState({ todo: event.target.value });
+  handleChange = event => this.setState({
+    todo: event.target.value
+  });
 
   handleClickAdd = () => {
     const { todo, todos } = this.state;
-    todo && this.setState({ todos: [ ...todos, { text: todo } ] });
+
+    todo && this.setState({
+      todo: '', // we need to clear the input to add new todo items
+      todos: [
+        ...todos,
+        {
+          text: todo,
+          id: uniqueId()
+        }
+      ]
+    });
   };
 
-  handleClickDelete = index => {
-    console.log(`Deleting todo number ${index}`);
+  handleClickDelete = todoItemId => {
+    console.log(`Deleting todo number ${todoItemId}`); // eslint-disable-line no-console
     const { todos } = this.state;
-    this.setState({ todos: [
-      ...todos.slice(0, index),
-      ...todos.slice(index + 1)
-    ]});
+
+    this.setState({
+      // Its better to filter the existing array and return back an array without the item to be removed,
+      // also better to compare with an ID rather than index
+      todos: todos.filter((item) => item.id !== todoItemId)
+    });
   }
 
   render() {
-    this.state.todos.forEach((todo, index) => {
-      this.state.todos[index] = { ...todo, id: uniqueId() };
-    });
+    // We can remove the forEach since the ids already exist for each todo item
     const { todo, todos } = this.state;
+
     return (
       <div className="todo-list">
         <h1>todos</h1>
@@ -46,7 +62,7 @@ export class App extends Component {
         <div>
           {
             todos.length
-              ? todos.map((todo, index) => <Todo key={todo.id} onClickDelete={() => this.handleClickDelete(index)} text={todo.text} />)
+              ? todos.map((todoItem, index) => <Todo key={todoItem.id} onClickDelete={() => this.handleClickDelete(todoItem.id)} text={todoItem.text} />)
               : 'You\'re all done 🌴'
           }
         </div>
