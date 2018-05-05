@@ -6,7 +6,7 @@ import { Todo } from './Todo';
 export class App extends Component {
 
   state = {
-    todo: '',
+    newTodoValue: '',
     todos: [{
       id: uniqueId(), // add ID to initial Todo item
       text: 'Add your first todo'
@@ -14,23 +14,23 @@ export class App extends Component {
   }
 
   handleChange = event => this.setState({
-    todo: event.target.value
+    newTodoValue: event.target.value
   });
 
   handleClickAdd = () => {
-    const { todo, todos } = this.state;
+    const { newTodoValue, todos } = this.state;
 
     // Ensure the Todo item exists
-    if (Boolean(todo) === false) {
+    if (Boolean(newTodoValue) === false) {
       return false;
     }
 
     this.setState({
-      todo: '', // we need to clear the input to add new todo items
+      newTodoValue: '', // we need to clear the input to add new todo items
       todos: [
         ...todos,
         {
-          text: todo,
+          text: newTodoValue,
           id: uniqueId()
         }
       ]
@@ -50,7 +50,7 @@ export class App extends Component {
 
   render() {
     // We can remove the forEach since the ids already exist for each todo item
-    const { todo, todos } = this.state;
+    const { newTodoValue, todos } = this.state;
 
     return (
       <div className="todo-list">
@@ -64,7 +64,7 @@ export class App extends Component {
           }
         </div>
         <div className="todo-input">
-          <input onChange={this.handleChange} placeholder="..." type="text" value={todo}/>
+          <input onChange={this.handleChange} placeholder="..." type="text" value={newTodoValue}/>
           <button onClick={this.handleClickAdd}>Add</button>
         </div>
       </div>
