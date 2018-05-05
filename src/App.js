@@ -13,14 +13,6 @@ export class App extends Component {
     }]
   }
 
-  componentDidUpdate = (prevProps, prevState) => {
-    const { todos: prevTodos } = prevState;
-    const { todos } = this.state;
-    if ( prevTodos.length !== todos.length ) {
-      document.querySelector('#counter').innerText = todos.length;
-    }
-  }
-
   handleChange = event => this.setState({
     todo: event.target.value
   });
@@ -63,7 +55,7 @@ export class App extends Component {
     return (
       <div className="todo-list">
         <h1>todos</h1>
-        <p><span id="counter">1</span> remaining</p>
+        <p>{todos.length} remaining</p>
         <div>
           {
             todos.length
