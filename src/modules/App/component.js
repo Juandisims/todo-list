@@ -60,7 +60,8 @@ export class App extends Component {
         <h1>todos</h1>
         <p>{todos.length} remaining</p>
 
-        <TodoList todos={todos} handleClickDelete={(id) => this.handleClickDelete(id)}></TodoList>
+        <TodoList todos={todos} handleClickDelete={(id) =>
+          this.handleClickDelete(id)}></TodoList>
 
         <div className="todo-input">
           <input
