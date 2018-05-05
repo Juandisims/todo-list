@@ -1,0 +1,1 @@
+export { TodoComponent as TodoList } from './component';
