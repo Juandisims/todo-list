@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { uniqueId } from 'lodash';
 
-import { Todo } from './modules/Todo/index';
-import { TodoList } from './modules/TodoList/index';
+import { TodoList } from '../TodoList/index';
 
 export class App extends Component {
 
