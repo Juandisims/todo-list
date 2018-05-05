@@ -38,11 +38,14 @@ export class App extends Component {
   };
 
   handleClickDelete = todoItemId => {
-    console.log(`Deleting todo number ${todoItemId}`); // eslint-disable-line no-console
+    /* eslint-disable */
+    console.log(`Deleting todo number ${todoItemId}`);
+    /* eslint-enable */
     const { todos } = this.state;
 
     this.setState({
-      // Its better to filter the existing array and return back an array without the item to be removed,
+      // Its better to filter the existing array and return back an array
+      // without the item to be removed,
       // also better to compare with an ID rather than index
       todos: todos.filter((item) => item.id !== todoItemId)
     });
@@ -59,12 +62,22 @@ export class App extends Component {
         <ul>
           {
             todos.length > 0
-              ? todos.map((todoItem, index) => <Todo key={todoItem.id} onClickDelete={() => this.handleClickDelete(todoItem.id)} text={todoItem.text} />)
+              ? todos.map((todoItem, index) =>
+                <Todo
+                  key={todoItem.id}
+                  onClickDelete={() => this.handleClickDelete(todoItem.id)}
+                  text={todoItem.text} />
+                )
               : 'You\'re all done 🌴'
           }
         </ul>
         <div className="todo-input">
-          <input onChange={this.handleChange} placeholder="..." type="text" value={newTodoValue}/>
+          <input
+            onChange={this.handleChange}
+            placeholder="..."
+            type="text"
+            value={newTodoValue}/>
+
           <button onClick={this.handleClickAdd}>Add</button>
         </div>
       </div>
