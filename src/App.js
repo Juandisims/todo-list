@@ -58,7 +58,7 @@ export class App extends Component {
         <p>{todos.length} remaining</p>
         <ul>
           {
-            todos.length
+            todos.length > 0
               ? todos.map((todoItem, index) => <Todo key={todoItem.id} onClickDelete={() => this.handleClickDelete(todoItem.id)} text={todoItem.text} />)
               : 'You\'re all done 🌴'
           }
