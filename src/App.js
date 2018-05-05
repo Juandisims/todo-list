@@ -56,13 +56,13 @@ export class App extends Component {
       <div className="todo-list">
         <h1>todos</h1>
         <p>{todos.length} remaining</p>
-        <div>
+        <ul>
           {
             todos.length
               ? todos.map((todoItem, index) => <Todo key={todoItem.id} onClickDelete={() => this.handleClickDelete(todoItem.id)} text={todoItem.text} />)
               : 'You\'re all done 🌴'
           }
-        </div>
+        </ul>
         <div className="todo-input">
           <input onChange={this.handleChange} placeholder="..." type="text" value={newTodoValue}/>
           <button onClick={this.handleClickAdd}>Add</button>
