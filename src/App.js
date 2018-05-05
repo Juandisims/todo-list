@@ -28,7 +28,12 @@ export class App extends Component {
   handleClickAdd = () => {
     const { todo, todos } = this.state;
 
-    todo && this.setState({
+    // Ensure the Todo item exists
+    if (Boolean(todo) === false) {
+      return false;
+    }
+
+    this.setState({
       todo: '', // we need to clear the input to add new todo items
       todos: [
         ...todos,
