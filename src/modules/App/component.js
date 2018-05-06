@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import { uniqueId } from 'lodash';
+
+import * as TodoActions from '../../actions/index'
 
 import { TodoList } from '../TodoList/index';
 
@@ -11,10 +14,9 @@ const AppComponent = ({ todos, actions }) => {
       <h1>todos</h1>
       <p>{todos.length} remaining</p>
 
-      <TodoList todos={todos} handleClickDelete={(id) =>
-        this.handleClickDelete(id)}></TodoList>
+      <TodoList todos={todos} actions={actions}></TodoList>
 
-      <div className="todo-input">
+      {/* <div className="todo-input"> // TODO: move to component
         <input
           onChange={this.handleChange}
           placeholder="..."
@@ -22,7 +24,7 @@ const AppComponent = ({ todos, actions }) => {
           value={newTodoValue}/>
 
         <button onClick={this.handleClickAdd}>Add</button>
-      </div>
+      </div> */}
     </div>
   )
 }

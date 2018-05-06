@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 import { Todo } from '../Todo/index';
 
-export const TodoComponent = ({ todos, handleClickDelete }) => {
+export const TodoComponent = ({ todos, actions }) => {
   return <ul>
     {
       todos.length > 0
         ? todos.map((todoItem, index) =>
           <Todo
             key={todoItem.id}
-            onClickDelete={() => handleClickDelete(todoItem.id)}
+            onClickDelete={() => actions.removeTodo(todoItem.id)}
             text={todoItem.text} />
           )
         : 'You\'re all done 🌴'
@@ -20,7 +20,7 @@ export const TodoComponent = ({ todos, handleClickDelete }) => {
 
 TodoComponent.propTypes = {
   todos: PropTypes.array.isRequired,
-  handleClickDelete: PropTypes.func.isRequired
+  actions: PropTypes.object.isRequired
 }
 
 TodoComponent.displayName = 'TodoList';
