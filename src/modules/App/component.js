@@ -17,7 +17,7 @@ const AppComponent = ({ todos, actions }) => {
 
       <TodoList todos={todos} actions={actions}></TodoList>
 
-      <TodoForm></TodoForm>
+      <TodoForm actions={actions}></TodoForm>
     </div>
   )
 }

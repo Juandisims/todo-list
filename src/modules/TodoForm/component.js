@@ -15,7 +15,10 @@ export class TodoForm extends Component {
 
   handleClickAdd = () => {
 
-    // TODO: add action here to append todos in state
+    // Add new item to todo list
+    this.props.actions.addTodo(this.state.newTodoValue);
+
+    // Clear value of input
     this.setState({
       newTodoValue: ''
     });
