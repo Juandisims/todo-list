@@ -40,5 +40,7 @@ export class TodoForm extends Component {
 }
 
 TodoForm.propTypes = {
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.shape({
+    addTodo: PropTypes.func.isRequired
+  })
 }
