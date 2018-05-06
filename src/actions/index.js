@@ -1,9 +1,8 @@
 
 // redux actions, these will call the mutators to change the state
-export const addTodo = text => {
+export const addTodo = () => {
   return {
-    type: 'addTodo',
-    text
+    type: 'addTodo'
   }
 }
 export const removeTodo = id => {

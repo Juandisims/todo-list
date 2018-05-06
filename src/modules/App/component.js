@@ -8,7 +8,7 @@ import * as TodoActions from '../../actions/index'
 import { TodoList } from '../TodoList/index';
 import { TodoForm } from '../TodoForm/index';
 
-const AppComponent = ({ todos, actions }) => {
+const AppComponent = ({ todos, newTodoValue, actions }) => {
 
   return (
     <div className="todo-list">
@@ -17,13 +17,14 @@ const AppComponent = ({ todos, actions }) => {
 
       <TodoList todos={todos} actions={actions}></TodoList>
 
-      <TodoForm actions={actions}></TodoForm>
+      <TodoForm newTodoValue={newTodoValue} actions={actions}></TodoForm>
     </div>
   )
 }
 
 const stateToProps = state => ({
-  todos: state.todos
+  todos: state.todos,
+  newTodoValue: state.newTodoValue
 })
 
 const actions = dispatch => ({

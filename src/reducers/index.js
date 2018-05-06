@@ -1,7 +1,7 @@
 import { uniqueId } from 'lodash';
 
 const initialState = {
-  newTodoValue: '',
+  newTodoValue: '', // for the new todo item form
   todos: [{
     id: uniqueId(),
     text: 'Add your first todo'
@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
         todos: [
           ...state.todos,
           {
-            text: action.text,
+            text: state.newTodoValue, // save the value of the new todo input
             id: uniqueId()
           }
         ]

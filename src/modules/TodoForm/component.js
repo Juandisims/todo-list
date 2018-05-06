@@ -1,45 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export class TodoForm extends Component {
+export const TodoForm = ({ newTodoValue, actions }) => {
+  return <div className="todo-input">
+    <input
+      onChange={(evt) => actions.updateNewTodoValue(evt.target.value)}
+      placeholder="..."
+      type="text"
+      value={newTodoValue} />
 
-  state = {
-    newTodoValue: ''
-  }
-
-  handleChange = (evt) => {
-    this.setState({
-      newTodoValue: evt.target.value
-    });
-  }
-
-  handleClickAdd = () => {
-
-    // Add new item to todo list
-    this.props.actions.addTodo(this.state.newTodoValue);
-
-    // Clear value of input
-    this.setState({
-      newTodoValue: ''
-    });
-  }
-
-  render() {
-    const { newTodoValue } = this.state;
-
-    return <div className="todo-input">
-      <input
-        onChange={this.handleChange}
-        placeholder="..."
-        type="text"
-        value={newTodoValue}/>
-
-      <button onClick={this.handleClickAdd}>Add</button>
-    </div>
-  }
+    <button onClick={() => actions.addTodo()}>Add</button>
+  </div>
 }
 
 TodoForm.propTypes = {
+  newTodoValue: PropTypes.string,
   actions: PropTypes.shape({
     addTodo: PropTypes.func.isRequired
   })
