@@ -4,7 +4,7 @@ import { uniqueId } from 'lodash';
 
 import { TodoList } from '../TodoList/index';
 
-const AppComponent = () => {
+const AppComponent = ({ todos, actions }) => {
 
   return (
     <div className="todo-list">
