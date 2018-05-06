@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const TodoComponent = ({ text, onClickDelete }) => {
+export const Todo = ({ text, onClickDelete }) => {
   return (
     <li className="todo-item">
       {text}
@@ -10,9 +10,9 @@ export const TodoComponent = ({ text, onClickDelete }) => {
   );
 }
 
-TodoComponent.propTypes = {
+Todo.propTypes = {
   text: PropTypes.string.isRequired,
   onClickDelete: PropTypes.func.isRequired
 }
 
-TodoComponent.displayName = 'Todo';
+Todo.displayName = 'Todo';

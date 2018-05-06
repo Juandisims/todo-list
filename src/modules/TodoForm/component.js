@@ -37,5 +37,8 @@ export class TodoForm extends Component {
       <button onClick={this.handleClickAdd}>Add</button>
     </div>
   }
+}
 
+TodoForm.propTypes = {
+  actions: PropTypes.object.isRequired
 }
