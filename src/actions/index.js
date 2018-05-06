@@ -12,3 +12,10 @@ export const removeTodo = id => {
     id
   }
 }
+
+export const updateNewTodoValue = text => {
+  return {
+    type: 'updateNewTodoValue',
+    text
+  }
+}
