@@ -6,6 +6,7 @@ import { uniqueId } from 'lodash';
 import * as TodoActions from '../../actions/index'
 
 import { TodoList } from '../TodoList/index';
+import { TodoForm } from '../TodoForm/index';
 
 const AppComponent = ({ todos, actions }) => {
 
@@ -16,15 +17,7 @@ const AppComponent = ({ todos, actions }) => {
 
       <TodoList todos={todos} actions={actions}></TodoList>
 
-      {/* <div className="todo-input"> // TODO: move to component
-        <input
-          onChange={this.handleChange}
-          placeholder="..."
-          type="text"
-          value={newTodoValue}/>
-
-        <button onClick={this.handleClickAdd}>Add</button>
-      </div> */}
+      <TodoForm></TodoForm>
     </div>
   )
 }
