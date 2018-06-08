@@ -8,11 +8,11 @@ export const Todo = ({ text, onClickDelete }) => {
       <span onClick={onClickDelete}>&times;</span>
     </li>
   );
-}
+};
 
 Todo.propTypes = {
   text: PropTypes.string.isRequired,
   onClickDelete: PropTypes.func.isRequired
-}
+};
 
 Todo.displayName = 'Todo';
