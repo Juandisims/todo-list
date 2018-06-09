@@ -5,7 +5,11 @@
   "scripts": {
     "build": "webpack --config tools/webpack/production.config.js",
     "lint": "eslint ./src --ext .js",
-    "start": "webpack-dev-server --config tools/webpack/development.config.js"
+    "start": "webpack-dev-server --config tools/webpack/development.config.js",
+    "test": "jest"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/tools/test/setupTests.js"
   },
   "repository": {
     "type": "git",
@@ -30,9 +34,13 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.0",
     "eslint-plugin-babel": "^4.1.2",
     "html-webpack-plugin": "^3.0.7",
+    "jest": "^23.1.0",
+    "react-test-renderer": "^16.4.0",
     "style-loader": "^0.20.3",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.1"
