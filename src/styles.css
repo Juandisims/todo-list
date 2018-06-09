@@ -9,6 +9,7 @@ body {
   max-width: 400px;
   padding: 40px;
   width: 100%;
+  transition: 0.3s ease all;
 }
 
 .todo-list h1 {
@@ -23,6 +24,18 @@ body {
 .todo-list .todo-item {
   padding: 20px 0;
   position: relative;
+}
+
+.todo-list .todo-item:hover {
+  cursor: pointer;
+}
+
+li.selected.todo-item {
+  outline: 1px solid #f2a900;
+  padding-left: 10px;
+  background: rgba(242, 169, 0, 0.2);
+  border-bottom: 0px;
+  transition: 0.3s ease all;
 }
 
 .todo-list .todo-item:not(:first-child) {
@@ -66,4 +79,9 @@ body {
 
 .todo-list .todo-input button:disabled {
   background: #ccc;
+  cursor: not-allowed;
+}
+
+.todo-list .todo-input .update {
+  background: #f2a900;
 }
