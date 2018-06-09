@@ -11,6 +11,7 @@ export const TodoComponent = ({ todos, selectedTodo, actions }) => {
             <Todo
               selected={todoItem.id === selectedTodo}
               key={todoItem.id}
+              onClickDeselected={() => actions.deselectTodo()}
               onClickSelected={() => actions.selectTodo(todoItem.id)}
               onClickDelete={() => actions.removeTodo(todoItem.id)}
               text={todoItem.text}

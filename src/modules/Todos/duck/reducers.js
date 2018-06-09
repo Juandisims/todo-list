@@ -50,6 +50,13 @@ export default (state = initialState, action) => {
           .text
       };
 
+    case types.DESELECT_TODO:
+      return {
+        ...state,
+        selectedTodoId: null,
+        newTodoValue: ''
+      };
+
     case types.UPDATE_TODO:
       return {
         ...state,

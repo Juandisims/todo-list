@@ -23,6 +23,10 @@ export const selectTodo = id => {
   return { type: types.SELECT_TODO, id };
 };
 
+export const deselectTodo = id => {
+  return { type: types.DESELECT_TODO };
+};
+
 export const updateTodo = () => {
   return { type: types.UPDATE_TODO };
 };
@@ -32,5 +36,6 @@ export default {
   removeTodo,
   updateNewTodoValue,
   selectTodo,
+  deselectTodo,
   updateTodo
 };
