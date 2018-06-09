@@ -30,7 +30,7 @@ body {
   cursor: pointer;
 }
 
-li.selected.todo-item {
+.todo-list .todo-item.selected {
   outline: 1px solid #f2a900;
   padding-left: 10px;
   background: rgba(242, 169, 0, 0.2);
