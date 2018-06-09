@@ -8,7 +8,8 @@ export default connect(
   state => {
     return {
       todos: state.todos.todoList,
-      newTodoValue: state.todos.newTodoValue
+      newTodoValue: state.todos.newTodoValue,
+      selectedTodo: state.todos.selectedTodoId
     };
   },
   dispatch => {
