@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 export const TodoForm = ({ newTodoValue, selectedTodo, actions }) => (
@@ -24,8 +24,10 @@ export const TodoForm = ({ newTodoValue, selectedTodo, actions }) => (
 
 TodoForm.propTypes = {
   newTodoValue: PropTypes.string,
+  selectedTodo: PropTypes.string,
   actions: PropTypes.shape({
     addTodo: PropTypes.func.isRequired,
-    updateNewTodoValue: PropTypes.func.isRequired
+    updateNewTodoValue: PropTypes.func.isRequired,
+    updateTodo: PropTypes.func.isRequired
   })
 };

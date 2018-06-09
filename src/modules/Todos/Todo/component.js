@@ -18,7 +18,8 @@ export const Todo = ({
 
 Todo.propTypes = {
   text: PropTypes.string.isRequired,
-  onClickDelete: PropTypes.func.isRequired
+  onClickDelete: PropTypes.func.isRequired,
+  onClickDeselected: PropTypes.func.isRequired
 };
 
 Todo.displayName = 'Todo';
