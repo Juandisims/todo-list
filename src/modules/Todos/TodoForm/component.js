@@ -1,0 +1,33 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+export const TodoForm = ({ newTodoValue, selectedTodo, actions }) => (
+  <div className="todo-input">
+    <input
+      onChange={evt => actions.updateNewTodoValue(evt.target.value)}
+      placeholder="..."
+      type="text"
+      value={newTodoValue}
+    />
+
+    {selectedTodo ? (
+      <button className="update" onClick={() => actions.updateTodo()}>
+        Save
+      </button>
+    ) : newTodoValue.length === 0 ? (
+      <button disabled>Add</button>
+    ) : (
+      <button onClick={() => actions.addTodo()}>Add</button>
+    )}
+  </div>
+);
+
+TodoForm.propTypes = {
+  newTodoValue: PropTypes.string,
+  selectedTodo: PropTypes.string,
+  actions: PropTypes.shape({
+    addTodo: PropTypes.func.isRequired,
+    updateNewTodoValue: PropTypes.func.isRequired,
+    updateTodo: PropTypes.func.isRequired
+  })
+};
