@@ -8,17 +8,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.js|\.jsx$/,
+        exclude: /(node_modules)/,
         include: SRC_DIR,
-        loader: 'babel-loader',
+        loader: 'babel-loader'
       },
       {
         test: /\.css$/,
         include: SRC_DIR,
-        use: ['style-loader', 'css-loader'],
-      },
-    ],
+        use: ['style-loader', 'css-loader']
+      }
+    ]
   },
   devtool: 'source-map',
-  plugins: [ new HtmlWebpackPlugin() ],
+  plugins: [new HtmlWebpackPlugin()]
 };

@@ -9,15 +9,21 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.js|\.jsx$/,
+        exclude: /(node_modules)/,
         include: SRC_DIR,
-        loader: 'babel-loader',
+        loader: 'babel-loader'
+      },
+      {
+        test: /\.css$/,
+        include: SRC_DIR,
+        use: ['style-loader', 'css-loader']
       }
-    ],
+    ]
   },
   output: {
     filename: 'bundle.js',
-    path: DIST_DIR,
+    path: DIST_DIR
   },
-  plugins: [ new HtmlWebpackPlugin() ],
+  plugins: [new HtmlWebpackPlugin()]
 };
