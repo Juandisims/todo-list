@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export const TodoForm = ({ newTodoValue, actions }) => (
+export const TodoForm = ({ newTodoValue, selectedTodo, actions }) => (
   <div className="todo-input">
     <input
       onChange={evt => actions.updateNewTodoValue(evt.target.value)}
@@ -10,7 +10,11 @@ export const TodoForm = ({ newTodoValue, actions }) => (
       value={newTodoValue}
     />
 
-    {newTodoValue.length === 0 ? (
+    {selectedTodo ? (
+      <button className="update" onClick={() => actions.updateTodo()}>
+        Save
+      </button>
+    ) : newTodoValue.length === 0 ? (
       <button disabled>Add</button>
     ) : (
       <button onClick={() => actions.addTodo()}>Add</button>
