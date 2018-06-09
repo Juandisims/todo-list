@@ -19,8 +19,18 @@ export const updateNewTodoValue = text => {
   };
 };
 
+export const selectTodo = id => {
+  return { type: types.SELECT_TODO, id };
+};
+
+export const updateTodo = () => {
+  return { type: types.UPDATE_TODO };
+};
+
 export default {
   addTodo,
   removeTodo,
-  updateNewTodoValue
+  updateNewTodoValue,
+  selectTodo,
+  updateTodo
 };
